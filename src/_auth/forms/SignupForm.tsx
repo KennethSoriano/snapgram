@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { SignupValidation } from "@/lib/validation"
 import Loader from "@/components/shared/Loader"
 import { Link } from "react-router-dom"
+import { createUserAcxcount } from "@/lib/appwrite/api"
 
 
 
@@ -26,7 +27,9 @@ const SignupForm = () => {
  
 
   async function onSubmit(values: z.infer<typeof SignupValidation>) {
-    const newUser = await createUserAccount(values);
+    const newUser = await createUserAcxcount(values);
+
+    console.log(newUser)
   }
 
   return (
@@ -38,7 +41,7 @@ const SignupForm = () => {
         <p className="text-light-3 small-medium md:base-regular">To use Snapgram, please enter your details</p>
 
 
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 flex flex-col gap-5 w-full mt-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 w-full mt-4">
           <FormField
             control={form.control}
             name="name"
