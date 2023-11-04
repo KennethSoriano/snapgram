@@ -16,3 +16,12 @@ export const useSignInAccount = () => {
         }) => signInAccount(user),
     })
 }
+
+export const useSignOutAccount = () => {
+    return useMutation({
+        mutationFn: (user: {
+            email: string; 
+            password: string
+        }) => signInAccount(user),
+    })
+}
